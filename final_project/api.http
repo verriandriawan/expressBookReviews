@@ -16,3 +16,14 @@ GET http://127.0.0.1:5000/title/The Epic Of Gilgamesh
 
 GET http://127.0.0.1:5000/review/10
 ###
+
+### Register
+POST http://127.0.0.1:5000/register
+Content-Type: application/json
+
+{
+    "username": "guest",
+    "password": "admin"
+}
+###
+

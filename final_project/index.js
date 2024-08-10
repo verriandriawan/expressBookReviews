@@ -5,10 +5,6 @@ const customer_routes = require('./router/auth_users.js').authenticated;
 const genl_routes = require('./router/general.js').general;
 
 const app = express();
-const authUser = {
-    username: 'final-test',
-    pass: 'password'
-}
 
 app.use(express.json());
 
@@ -28,7 +24,7 @@ app.use("/customer/auth/*", function auth(req,res,next) {
       } else {
         return res.status(403).json({ message: "User not logged in" });
       }
-    // Write the authenication mechanism here
+    
 });
  
 const PORT =5000;
