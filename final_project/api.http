@@ -13,3 +13,6 @@ GET http://127.0.0.1:5000/author/Unknown
 GET http://127.0.0.1:5000/title/The Epic Of Gilgamesh
 
 ###
+
+GET http://127.0.0.1:5000/review/10
+###
