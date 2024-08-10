@@ -2,8 +2,10 @@ const express = require('express');
 let books = require("./booksdb.js");
 let isValid = require("./auth_users.js").isValid;
 let users = require("./auth_users.js").users;
+const axios = require('axios');
 const public_users = express.Router();
 
+const endpoint = 'http://localhost:5000'
 
 public_users.post("/register", (req,res) => {
   const username = req.body.username
@@ -32,6 +34,19 @@ public_users.get('/',function (req, res) {
   }
   return res.status(200).json(resp);
 });
+
+public_users.get('/promise/books', async function(req, res) {
+
+  try {
+    const result = await axios.get(`${endpoint}/`)
+    const data = result.data
+    return res.status(200).json(data) 
+  } catch(e) {
+    console.log(e.message)
+    return res.status(500).json({ message: 'Internal server error' })
+  }
+  
+} )
 
 // Get book details based on ISBN
 public_users.get('/isbn/:isbn',function (req, res) {
