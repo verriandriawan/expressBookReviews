@@ -58,7 +58,22 @@ public_users.get('/isbn/:isbn',function (req, res) {
   }
 
   return res.status(200).json(book);
- });
+});
+
+
+public_users.get('/promise/books/isbn/:isbn', async function(req, res) {
+  const isbn = req.params.isbn
+
+  try {
+    const result = await axios.get(`${endpoint}/isbn/${isbn}`)
+    const data = result.data
+    return res.status(200).json(data) 
+  } catch(e) {
+    console.log(e.message)
+    return res.status(500).json({ message: 'Internal server error' })
+  }
+
+} )
   
 // Get book details based on author
 public_users.get('/author/:author',function (req, res) {
