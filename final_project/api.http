@@ -57,3 +57,7 @@ GET http://127.0.0.1:5000/promise/books/isbn/1
 ###
 
 GET http://127.0.0.1:5000/promise/books/author/Unknown
+
+###
+
+GET http://127.0.0.1:5000/promise/books/title/The Epic Of Gilgamesh

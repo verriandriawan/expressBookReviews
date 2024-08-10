@@ -124,6 +124,20 @@ public_users.get('/title/:title',function (req, res) {
   return res.status(200).json({book: data});
 });
 
+
+public_users.get('/promise/books/title/:title', async function(req, res) {
+  const title = req.params.title
+  try {
+    const result = await axios.get(`${endpoint}/title/${title}`)
+    const data = result.data
+    return res.status(200).json(data) 
+  } catch(e) {
+    console.log(e.message)
+    return res.status(500).json({ message: 'Internal server error' })
+  }
+  
+})
+
 //  Get book review
 public_users.get('/review/:isbn',function (req, res) {
   let keys = Object.keys(books)
