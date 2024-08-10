@@ -9,3 +9,7 @@ GET http://127.0.0.1:5000/isbn/1
 GET http://127.0.0.1:5000/author/Unknown
 
 ###
+
+GET http://127.0.0.1:5000/title/The Epic Of Gilgamesh
+
+###
