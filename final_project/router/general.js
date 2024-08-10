@@ -93,6 +93,20 @@ public_users.get('/author/:author',function (req, res) {
   });
 });
 
+public_users.get('/promise/books/author/:author', async function(req, res) {
+  const author = req.params.author 
+
+  try {
+    const result = await axios.get(`${endpoint}/author/${author}`)
+    const data = result.data
+    return res.status(200).json(data) 
+  } catch(e) {
+    console.log(e.message)
+    return res.status(500).json({ message: 'Internal server error' })
+  }
+  
+})
+
 // Get all books based on title
 public_users.get('/title/:title',function (req, res) {
   let keys = Object.keys(books)
